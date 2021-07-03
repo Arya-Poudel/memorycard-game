@@ -21,17 +21,24 @@ const Card = (props) => {
   useEffect(() => {
     shuffleArray(card);
     setCards(card);
+    // eslint-disable-next-line 
   },[score]);
   
+
   const handleGameLogic = (title) => {
   	  if (clickedCards.includes(title)) {
   	  		//gameover
+          //alert
+          alert(`Game Over! Score = ${score}`);
   	  		if (score > highScore) {setHighScore(score);}
   	  		setScore(0);
   	  		setClickedCards([]);
   	  } else {
   	  		//update score and cardlist
   	  		setScore((score) => score + 1)
+  	  		if (score === 12) {
+
+  	  		}
   	  		setClickedCards((card) => [...card, title])
   	  }
   };
